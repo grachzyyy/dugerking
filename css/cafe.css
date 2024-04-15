@@ -359,9 +359,20 @@ body.order-mode .cafe-order-overview {
   padding: 4px 0;
 }
 
-.cafe-text-field-wrap,
-.cafe-text-field-wrap-adres {
+.cafe-text-field-wrap{
   margin-top: 14px;
+}
+
+.cafe-text-field-wrap-adres{
+  margin-top: 5px;
+}
+
+.cafe-text-field-wrap-adres-znack{
+  display: flex;
+}
+
+.cafe-text-field-wrap-adres-znack i{
+  font-size: 50px;
 }
 
 
