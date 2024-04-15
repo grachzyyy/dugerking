@@ -359,9 +359,12 @@ body.order-mode .cafe-order-overview {
   padding: 4px 0;
 }
 
-.cafe-text-field-wrap {
+.cafe-text-field-wrap,
+.cafe-text-field-wrap-adres {
   margin-top: 14px;
 }
+
+
 .cafe-text-field {
   font-family: var(--default-font);
   font-size: 17px;
