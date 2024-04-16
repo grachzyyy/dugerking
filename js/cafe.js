@@ -1,6 +1,9 @@
-(function($) {
-  $.fn.redraw = function() {
-    return this.map(function(){ this.offsetTop; return this; });
+(function ($) {
+  $.fn.redraw = function () {
+    return this.map(function () {
+      this.offsetTop;
+      return this;
+    });
   };
 })(jQuery);
 
@@ -9,7 +12,7 @@ var Cafe = {
   modeOrder: false,
   totalPrice: 0,
 
-  init: function(options) {
+  init: function (options) {
     Telegram.WebApp.ready();
     Cafe.apiUrl = options.apiUrl;
     Cafe.userId = options.userId;
@@ -22,7 +25,7 @@ var Cafe = {
     $('.js-item-decr-btn').on('click', Cafe.eDecrClicked);
     $('.js-order-edit').on('click', Cafe.eEditClicked);
     $('.js-status').on('click', Cafe.eStatusClicked);
-    $('.js-order-comment-field').each(function() {
+    $('.js-order-comment-field').each(function () {
       autosize(this);
     });
     Telegram.WebApp.MainButton.setParams({
@@ -30,8 +33,8 @@ var Cafe = {
     }).onClick(Cafe.mainBtnClicked);
     initRipple();
   },
-  initLotties: function() {
-    $('.js-item-lottie').each(function() {
+  initLotties: function () {
+    $('.js-item-lottie').each(function () {
       RLottie.init(this, {
         maxDeviceRatio: 2,
         cachingModulo: 3,
@@ -39,40 +42,40 @@ var Cafe = {
       });
     });
   },
-  eLottieClicked: function(e) {
+  eLottieClicked: function (e) {
     if (Cafe.isClosed) {
       return false;
     }
     RLottie.playOnce(this);
   },
-  eIncrClicked: function(e) {
+  eIncrClicked: function (e) {
     e.preventDefault();
     var itemEl = $(this).parents('.js-item');
     Cafe.incrClicked(itemEl, 1);
   },
-  eDecrClicked: function(e) {
+  eDecrClicked: function (e) {
     e.preventDefault();
     var itemEl = $(this).parents('.js-item');
     Cafe.incrClicked(itemEl, -1);
   },
-  eEditClicked: function(e) {
+  eEditClicked: function (e) {
     e.preventDefault();
     Cafe.toggleMode(false);
   },
-  getOrderItem: function(itemEl) {
+  getOrderItem: function (itemEl) {
     var id = itemEl.data('item-id');
-    return $('.js-order-item').filter(function() {
+    return $('.js-order-item').filter(function () {
       return ($(this).data('item-id') == id);
     });
   },
-  updateItem: function(itemEl, delta) {
+  updateItem: function (itemEl, delta) {
     var price = +itemEl.data('item-price');
     var count = +itemEl.data('item-count') || 0;
     var counterEl = $('.js-item-counter', itemEl);
     counterEl.text(count ? count : 1);
     var isSelected = itemEl.hasClass('selected');
     if (!isSelected && count > 0) {
-      $('.js-item-lottie', itemEl).each(function() {
+      $('.js-item-lottie', itemEl).each(function () {
         RLottie.playOnce(this);
       });
     }
@@ -94,7 +97,7 @@ var Cafe = {
 
     Cafe.updateTotalPrice();
   },
-  incrClicked: function(itemEl, delta) {
+  incrClicked: function (itemEl, delta) {
     if (Cafe.isLoading || Cafe.isClosed) {
       return false;
     }
@@ -106,10 +109,10 @@ var Cafe = {
     itemEl.data('item-count', count);
     Cafe.updateItem(itemEl, delta);
   },
-  formatPrice: function(price) {
+  formatPrice: function (price) {
     return '$' + Cafe.formatNumber(price / 1000, 2, '.', ',');
   },
-  formatNumber: function(number, decimals, decPoint, thousandsSep) {
+  formatNumber: function (number, decimals, decPoint, thousandsSep) {
     number = (number + '').replace(/[^0-9+\-Ee.]/g, '')
     var n = !isFinite(+number) ? 0 : +number
     var prec = !isFinite(+decimals) ? 0 : Math.abs(decimals)
@@ -138,7 +141,7 @@ var Cafe = {
     }
     return s.join(dec)
   },
-  updateMainButton: function() {
+  updateMainButton: function () {
     var mainButton = Telegram.WebApp.MainButton;
     if (Cafe.modeOrder) {
       if (Cafe.isLoading) {
@@ -161,9 +164,9 @@ var Cafe = {
       }).hideProgress();
     }
   },
-  updateTotalPrice: function() {
+  updateTotalPrice: function () {
     var total_price = 0;
-    $('.js-item').each(function() {
+    $('.js-item').each(function () {
       var itemEl = $(this)
       var price = +itemEl.data('item-price');
       var count = +itemEl.data('item-count') || 0;
@@ -173,19 +176,22 @@ var Cafe = {
     Cafe.totalPrice = total_price;
     Cafe.updateMainButton();
   },
-  getOrderData: function() {
+  getOrderData: function () {
     var order_data = [];
-    $('.js-item').each(function() {
+    $('.js-item').each(function () {
       var itemEl = $(this)
-      var id    = itemEl.data('item-id');
+      var id = itemEl.data('item-id');
       var count = +itemEl.data('item-count') || 0;
       if (count > 0) {
-        order_data.push({id: id, count: count});
+        order_data.push({
+          id: id,
+          count: count
+        });
       }
     });
     return JSON.stringify(order_data);
   },
-  toggleMode: function(mode_order) {
+  toggleMode: function (mode_order) {
     Cafe.modeOrder = mode_order;
     var anim_duration, match;
     try {
@@ -203,43 +209,43 @@ var Cafe = {
     }
     if (mode_order) {
       var height = $('.cafe-items').height();
-      $('.js-item-lottie').each(function() {
+      $('.js-item-lottie').each(function () {
         RLottie.setVisible(this, false);
       });
       $('.cafe-order-overview').show();
       $('.cafe-items').css('maxHeight', height).redraw();
       $('body').addClass('order-mode');
-      $('.js-order-comment-field').each(function() {
+      $('.js-order-comment-field').each(function () {
         autosize.update(this);
       });
       Telegram.WebApp.expand();
-      setTimeout(function() {
-        $('.js-item-lottie').each(function() {
+      setTimeout(function () {
+        $('.js-item-lottie').each(function () {
           RLottie.setVisible(this, true);
         });
       }, anim_duration);
     } else {
-      $('.js-item-lottie').each(function() {
+      $('.js-item-lottie').each(function () {
         RLottie.setVisible(this, false);
       });
       $('body').removeClass('order-mode');
-      setTimeout(function() {
+      setTimeout(function () {
         $('.cafe-items').css('maxHeight', '');
         $('.cafe-order-overview').hide();
-        $('.js-item-lottie').each(function() {
+        $('.js-item-lottie').each(function () {
           RLottie.setVisible(this, true);
         });
       }, anim_duration);
     }
     Cafe.updateMainButton();
   },
-  toggleLoading: function(loading) {
+  toggleLoading: function (loading) {
     Cafe.isLoading = loading;
     Cafe.updateMainButton();
     $('body').toggleClass('loading', !!Cafe.isLoading);
     Cafe.updateTotalPrice();
   },
-  mainBtnClicked: function() {
+  mainBtnClicked: function () {
     if (!Cafe.canPay || Cafe.isLoading || Cafe.isClosed) {
       return false;
     }
@@ -254,7 +260,7 @@ var Cafe = {
         params.user_hash = Cafe.userHash;
       }
       Cafe.toggleLoading(true);
-      Cafe.apiRequest('makeOrder', params, function(result) {
+      Cafe.apiRequest('makeOrder', params, function (result) {
         Cafe.toggleLoading(false);
         if (result.ok) {
           Telegram.WebApp.close();
@@ -267,34 +273,41 @@ var Cafe = {
       Cafe.toggleMode(true);
     }
   },
-  eStatusClicked: function() {
+  eStatusClicked: function () {
     Cafe.hideStatus();
   },
-  showStatus: function(text) {
+  showStatus: function (text) {
     clearTimeout(Cafe.statusTo);
     $('.js-status').text(text).addClass('shown');
     if (!Cafe.isClosed) {
-      Cafe.statusTo = setTimeout(function(){ Cafe.hideStatus(); }, 2500);
+      Cafe.statusTo = setTimeout(function () {
+        Cafe.hideStatus();
+      }, 2500);
     }
   },
-  hideStatus: function() {
+  hideStatus: function () {
     clearTimeout(Cafe.statusTo);
     $('.js-status').removeClass('shown');
   },
-  apiRequest: function(method, data, onCallback) {
+  apiRequest: function (method, data, onCallback) {
     var authData = Telegram.WebApp.initData || '';
     $.ajax(Cafe.apiUrl, {
       type: 'POST',
-      data: $.extend(data, {_auth: authData, method: method}),
+      data: $.extend(data, {
+        _auth: authData,
+        method: method
+      }),
       dataType: 'json',
       xhrFields: {
         withCredentials: true
       },
-      success: function(result) {
+      success: function (result) {
         onCallback && onCallback(result);
       },
-      error: function(xhr) {
-        onCallback && onCallback({error: 'Server error'});
+      error: function (xhr) {
+        onCallback && onCallback({
+          error: 'Server error'
+        });
       }
     });
   }
@@ -305,17 +318,156 @@ var Cafe = {
   license: MIT
   http://www.jacklmoore.com/autosize
 */
-!function(e,t){if("function"==typeof define&&define.amd)define(["exports","module"],t);else if("undefined"!=typeof exports&&"undefined"!=typeof module)t(exports,module);else{var n={exports:{}};t(n.exports,n),e.autosize=n.exports}}(this,function(e,t){"use strict";function n(e){function t(){var t=window.getComputedStyle(e,null);"vertical"===t.resize?e.style.resize="none":"both"===t.resize&&(e.style.resize="horizontal"),s="content-box"===t.boxSizing?-(parseFloat(t.paddingTop)+parseFloat(t.paddingBottom)):parseFloat(t.borderTopWidth)+parseFloat(t.borderBottomWidth),isNaN(s)&&(s=0),l()}function n(t){var n=e.style.width;e.style.width="0px",e.offsetWidth,e.style.width=n,e.style.overflowY=t}function o(e){for(var t=[];e&&e.parentNode&&e.parentNode instanceof Element;)e.parentNode.scrollTop&&t.push({node:e.parentNode,scrollTop:e.parentNode.scrollTop}),e=e.parentNode;return t}function r(){var t=e.style.height,n=o(e),r=document.documentElement&&document.documentElement.scrollTop;e.style.height="auto";var i=e.scrollHeight+s;return 0===e.scrollHeight?void(e.style.height=t):(e.style.height=i+"px",u=e.clientWidth,n.forEach(function(e){e.node.scrollTop=e.scrollTop}),void(r&&(document.documentElement.scrollTop=r)))}function l(){r();var t=Math.round(parseFloat(e.style.height)),o=window.getComputedStyle(e,null),i=Math.round(parseFloat(o.height));if(i!==t?"visible"!==o.overflowY&&(n("visible"),r(),i=Math.round(parseFloat(window.getComputedStyle(e,null).height))):"hidden"!==o.overflowY&&(n("hidden"),r(),i=Math.round(parseFloat(window.getComputedStyle(e,null).height))),a!==i){a=i;var l=d("autosize:resized");try{e.dispatchEvent(l)}catch(e){}}}if(e&&e.nodeName&&"TEXTAREA"===e.nodeName&&!i.has(e)){var s=null,u=e.clientWidth,a=null,p=function(){e.clientWidth!==u&&l()},c=function(t){window.removeEventListener("resize",p,!1),e.removeEventListener("input",l,!1),e.removeEventListener("keyup",l,!1),e.removeEventListener("autosize:destroy",c,!1),e.removeEventListener("autosize:update",l,!1),Object.keys(t).forEach(function(n){e.style[n]=t[n]}),i.delete(e)}.bind(e,{height:e.style.height,resize:e.style.resize,overflowY:e.style.overflowY,overflowX:e.style.overflowX,wordWrap:e.style.wordWrap});e.addEventListener("autosize:destroy",c,!1),"onpropertychange"in e&&"oninput"in e&&e.addEventListener("keyup",l,!1),window.addEventListener("resize",p,!1),e.addEventListener("input",l,!1),e.addEventListener("autosize:update",l,!1),e.style.overflowX="hidden",e.style.wordWrap="break-word",i.set(e,{destroy:c,update:l}),t()}}function o(e){var t=i.get(e);t&&t.destroy()}function r(e){var t=i.get(e);t&&t.update()}var i="function"==typeof Map?new Map:function(){var e=[],t=[];return{has:function(t){return e.indexOf(t)>-1},get:function(n){return t[e.indexOf(n)]},set:function(n,o){e.indexOf(n)===-1&&(e.push(n),t.push(o))},delete:function(n){var o=e.indexOf(n);o>-1&&(e.splice(o,1),t.splice(o,1))}}}(),d=function(e){return new Event(e,{bubbles:!0})};try{new Event("test")}catch(e){d=function(e){var t=document.createEvent("Event");return t.initEvent(e,!0,!1),t}}var l=null;"undefined"==typeof window||"function"!=typeof window.getComputedStyle?(l=function(e){return e},l.destroy=function(e){return e},l.update=function(e){return e}):(l=function(e,t){return e&&Array.prototype.forEach.call(e.length?e:[e],function(e){return n(e,t)}),e},l.destroy=function(e){return e&&Array.prototype.forEach.call(e.length?e:[e],o),e},l.update=function(e){return e&&Array.prototype.forEach.call(e.length?e:[e],r),e}),t.exports=l});
+! function (e, t) {
+  if ("function" == typeof define && define.amd) define(["exports", "module"], t);
+  else if ("undefined" != typeof exports && "undefined" != typeof module) t(exports, module);
+  else {
+    var n = {
+      exports: {}
+    };
+    t(n.exports, n), e.autosize = n.exports
+  }
+}(this, function (e, t) {
+  "use strict";
+
+  function n(e) {
+    function t() {
+      var t = window.getComputedStyle(e, null);
+      "vertical" === t.resize ? e.style.resize = "none" : "both" === t.resize && (e.style.resize = "horizontal"), s = "content-box" === t.boxSizing ? -(parseFloat(t.paddingTop) + parseFloat(t.paddingBottom)) : parseFloat(t.borderTopWidth) + parseFloat(t.borderBottomWidth), isNaN(s) && (s = 0), l()
+    }
+
+    function n(t) {
+      var n = e.style.width;
+      e.style.width = "0px", e.offsetWidth, e.style.width = n, e.style.overflowY = t
+    }
+
+    function o(e) {
+      for (var t = []; e && e.parentNode && e.parentNode instanceof Element;) e.parentNode.scrollTop && t.push({
+        node: e.parentNode,
+        scrollTop: e.parentNode.scrollTop
+      }), e = e.parentNode;
+      return t
+    }
+
+    function r() {
+      var t = e.style.height,
+        n = o(e),
+        r = document.documentElement && document.documentElement.scrollTop;
+      e.style.height = "auto";
+      var i = e.scrollHeight + s;
+      return 0 === e.scrollHeight ? void(e.style.height = t) : (e.style.height = i + "px", u = e.clientWidth, n.forEach(function (e) {
+        e.node.scrollTop = e.scrollTop
+      }), void(r && (document.documentElement.scrollTop = r)))
+    }
+
+    function l() {
+      r();
+      var t = Math.round(parseFloat(e.style.height)),
+        o = window.getComputedStyle(e, null),
+        i = Math.round(parseFloat(o.height));
+      if (i !== t ? "visible" !== o.overflowY && (n("visible"), r(), i = Math.round(parseFloat(window.getComputedStyle(e, null).height))) : "hidden" !== o.overflowY && (n("hidden"), r(), i = Math.round(parseFloat(window.getComputedStyle(e, null).height))), a !== i) {
+        a = i;
+        var l = d("autosize:resized");
+        try {
+          e.dispatchEvent(l)
+        } catch (e) {}
+      }
+    }
+    if (e && e.nodeName && "TEXTAREA" === e.nodeName && !i.has(e)) {
+      var s = null,
+        u = e.clientWidth,
+        a = null,
+        p = function () {
+          e.clientWidth !== u && l()
+        },
+        c = function (t) {
+          window.removeEventListener("resize", p, !1), e.removeEventListener("input", l, !1), e.removeEventListener("keyup", l, !1), e.removeEventListener("autosize:destroy", c, !1), e.removeEventListener("autosize:update", l, !1), Object.keys(t).forEach(function (n) {
+            e.style[n] = t[n]
+          }), i.delete(e)
+        }.bind(e, {
+          height: e.style.height,
+          resize: e.style.resize,
+          overflowY: e.style.overflowY,
+          overflowX: e.style.overflowX,
+          wordWrap: e.style.wordWrap
+        });
+      e.addEventListener("autosize:destroy", c, !1), "onpropertychange" in e && "oninput" in e && e.addEventListener("keyup", l, !1), window.addEventListener("resize", p, !1), e.addEventListener("input", l, !1), e.addEventListener("autosize:update", l, !1), e.style.overflowX = "hidden", e.style.wordWrap = "break-word", i.set(e, {
+        destroy: c,
+        update: l
+      }), t()
+    }
+  }
+
+  function o(e) {
+    var t = i.get(e);
+    t && t.destroy()
+  }
+
+  function r(e) {
+    var t = i.get(e);
+    t && t.update()
+  }
+  var i = "function" == typeof Map ? new Map : function () {
+      var e = [],
+        t = [];
+      return {
+        has: function (t) {
+          return e.indexOf(t) > -1
+        },
+        get: function (n) {
+          return t[e.indexOf(n)]
+        },
+        set: function (n, o) {
+          e.indexOf(n) === -1 && (e.push(n), t.push(o))
+        },
+        delete: function (n) {
+          var o = e.indexOf(n);
+          o > -1 && (e.splice(o, 1), t.splice(o, 1))
+        }
+      }
+    }(),
+    d = function (e) {
+      return new Event(e, {
+        bubbles: !0
+      })
+    };
+  try {
+    new Event("test")
+  } catch (e) {
+    d = function (e) {
+      var t = document.createEvent("Event");
+      return t.initEvent(e, !0, !1), t
+    }
+  }
+  var l = null;
+  "undefined" == typeof window || "function" != typeof window.getComputedStyle ? (l = function (e) {
+    return e
+  }, l.destroy = function (e) {
+    return e
+  }, l.update = function (e) {
+    return e
+  }) : (l = function (e, t) {
+    return e && Array.prototype.forEach.call(e.length ? e : [e], function (e) {
+      return n(e, t)
+    }), e
+  }, l.destroy = function (e) {
+    return e && Array.prototype.forEach.call(e.length ? e : [e], o), e
+  }, l.update = function (e) {
+    return e && Array.prototype.forEach.call(e.length ? e : [e], r), e
+  }), t.exports = l
+});
 
 /* Ripple */
 
 function initRipple() {
   if (!document.querySelectorAll) return;
   var rippleHandlers = document.querySelectorAll('.ripple-handler');
-  var redraw = function(el) { el.offsetTop + 1; }
+  var redraw = function (el) {
+    el.offsetTop + 1;
+  }
   var isTouch = ('ontouchstart' in window);
   for (var i = 0; i < rippleHandlers.length; i++) {
-    (function(rippleHandler) {
+    (function (rippleHandler) {
       function onRippleStart(e) {
         var rippleMask = rippleHandler.querySelector('.ripple-mask');
         if (!rippleMask) return;
@@ -365,34 +517,3 @@ function initRipple() {
     })(rippleHandlers[i]);
   }
 }
-
-// JavaScript code to handle form navigation
-document.getElementById('openFormButton').addEventListener('click', function() {
-  // Create a new form page with the form
-  const formContainer = document.getElementById('formContainer');
-  const form = document.createElement('form');
-  const addressInput = document.createElement('input');
-  const houseInput = document.createElement('input');
-  const floorInput = document.createElement('input');
-  const submitButton = document.createElement('button');
-
-  addressInput.type = 'text';
-  addressInput.placeholder = 'Address';
-  houseInput.type = 'text';
-  houseInput.placeholder = 'House';
-  floorInput.type = 'text';
-  floorInput.placeholder = 'Floor';
-  submitButton.textContent = 'Submit';
-
-  form.appendChild(addressInput);
-  form.appendChild(document.createElement('br'));
-  form.appendChild(houseInput);
-  form.appendChild(document.createElement('br'));
-  form.appendChild(floorInput);
-  form.appendChild(document.createElement('br'));
-  form.appendChild(submitButton);
-
-  formContainer.innerHTML = '';
-  formContainer.appendChild(form);
-});
-
