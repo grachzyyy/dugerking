@@ -363,6 +363,10 @@ body.order-mode .cafe-order-overview {
   margin-top: 14px;
 }
 
+.cafe-text-field-wrap-adres{
+  margin-top: 14px;
+}
+
 .cafe-text-field {
   font-family: var(--default-font);
   font-size: 17px;
@@ -404,7 +408,7 @@ body.order-mode .cafe-order-overview {
   font-size: 14px;
   line-height: 18px;
   -webkit-font-smoothing: antialiased;
-  padding: 10px 20px 24px;
+  padding: 10px 20px 0px;
   color: var(--hint-color);
 }
 
