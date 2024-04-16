@@ -367,44 +367,17 @@ function initRipple() {
 
   document.getElementById("deliveryButton").addEventListener("click", showDeliveryForm);
 
-function showDeliveryForm() {
-  // Create the form HTML
-  const formHTML = `
-    <h2>Форма доставки</h2>
-    <form id="deliveryForm">
-      <label for="address">Адрес:</label>
-      <input type="text" id="address" name="address"><br>
+  document.getElementById("deliveryButton").addEventListener("click", toggleDeliveryForm);
 
-      <label for="house">Дом:</label>
-      <input type="text" id="house" name="house"><br>
-
-      <label for="floor">Этаж:</label>
-      <input type="text" id="floor" name="floor"><br>
-
-      <button type="submit">Отправить</button>
-    </form>
-  `;
-
-  // Display the form on the page
-  const formContainer = document.getElementById("deliveryFormContainer");
-  formContainer.innerHTML = formHTML;
-
-  // Handle form submission
-  const form = document.getElementById("deliveryForm");
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    // Get the form data
-    const address = form.address.value;
-    const house = form.house.value;
-    const floor = form.floor.value;
-
-    // Display the form data in the console
-    console.log("Address:", address);
-    console.log("House:", house);
-    console.log("Floor:", floor);
-
-    // Clear the form
-    form.reset();
-  });
-}
+  function toggleDeliveryForm() {
+    const formContainer = document.getElementById("deliveryFormContainer");
+  
+    if (formContainer.style.display === "none" || formContainer.style.display === "") {
+      // Form is currently closed, show it
+      formContainer.style.display = "block";
+    } else {
+      // Form is currently open, hide it
+      formContainer.style.display = "none";
+    }
+  }
 }
