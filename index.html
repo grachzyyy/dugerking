@@ -519,9 +519,40 @@
     </div>
 
 
-    
-  <button id="openFormButton">Доставка</button>
-  <div id="formContainer"></div>
+    <button id="deliveryButton">Доставка</button>
+
+  <div id="deliveryFormContainer" style="display: none;">
+    <h2>Форма доставки</h2>
+    <form id="deliveryForm">
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" name="address"><br>
+  
+      <label for="house">Дом:</label>
+      <input type="text" id="house" name="house"><br>
+  
+      <label for="floor">Этаж:</label>
+      <input type="text" id="floor" name="floor"><br>
+  
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+  
+  <script>
+  const deliveryFormContainer = document.getElementById('deliveryFormContainer');
+  
+  window.addEventListener('DOMContentLoaded', function() {
+    deliveryFormContainer.style.display = 'none';
+  });
+  
+  const deliveryButton = document.getElementById('deliveryButton');
+  deliveryButton.addEventListener('click', function() {
+    if (deliveryFormContainer.style.display === 'none' || deliveryFormContainer.style.display === '') {
+      deliveryFormContainer.style.display = 'block';
+    } else {
+      deliveryFormContainer.style.display = 'none';
+    }
+  });
+  </script>
 
   </section>
   <div class="cafe-status-wrap">
