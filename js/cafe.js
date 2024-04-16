@@ -365,34 +365,47 @@ function initRipple() {
     })(rippleHandlers[i]);
   }
 
-  // JavaScript code to handle form navigation
-document.getElementById('openFormButton').addEventListener('click', function() {
-  // Create a new form page with the form
-  const formContainer = document.getElementById('formContainer');
-  const form = document.createElement('form');
-  const addressInput = document.createElement('input');
-  const houseInput = document.createElement('input');
-  const floorInput = document.createElement('input');
-  const submitButton = document.createElement('button');
+  document.getElementById("deliveryButton").addEventListener("click", showDeliveryForm);
 
-  addressInput.type = 'text';
-  addressInput.placeholder = 'Address';
-  houseInput.type = 'text';
-  houseInput.placeholder = 'House';
-  floorInput.type = 'text';
-  floorInput.placeholder = 'Floor';
-  submitButton.textContent = 'Submit';
+function showDeliveryForm() {
+  // Create the form HTML
+  const formHTML = `
+    <h2>Форма доставки</h2>
+    <form id="deliveryForm">
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" name="address"><br>
 
-  form.appendChild(addressInput);
-  form.appendChild(document.createElement('br'));
-  form.appendChild(houseInput);
-  form.appendChild(document.createElement('br'));
-  form.appendChild(floorInput);
-  form.appendChild(document.createElement('br'));
-  form.appendChild(submitButton);
+      <label for="house">Дом:</label>
+      <input type="text" id="house" name="house"><br>
 
-  formContainer.innerHTML = '';
-  formContainer.appendChild(form);
-});
+      <label for="floor">Этаж:</label>
+      <input type="text" id="floor" name="floor"><br>
+
+      <button type="submit">Отправить</button>
+    </form>
+  `;
+
+  // Display the form on the page
+  const formContainer = document.getElementById("deliveryFormContainer");
+  formContainer.innerHTML = formHTML;
+
+  // Handle form submission
+  const form = document.getElementById("deliveryForm");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Get the form data
+    const address = form.address.value;
+    const house = form.house.value;
+    const floor = form.floor.value;
+
+    // Display the form data in the console
+    console.log("Address:", address);
+    console.log("House:", house);
+    console.log("Floor:", floor);
+
+    // Clear the form
+    form.reset();
+  });
+}
 
 }
