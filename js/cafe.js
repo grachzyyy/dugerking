@@ -21,7 +21,6 @@ var Cafe = {
     $('.js-item-incr-btn').on('click', Cafe.eIncrClicked);
     $('.js-item-decr-btn').on('click', Cafe.eDecrClicked);
     $('.js-order-edit').on('click', Cafe.eEditClicked);
-    $('.js-order-dostavka').on('click', Cafe.eDostavkaClicked);
     $('.js-status').on('click', Cafe.eStatusClicked);
     $('.js-order-comment-field').each(function() {
       autosize(this);
@@ -60,11 +59,6 @@ var Cafe = {
     e.preventDefault();
     Cafe.toggleMode(false);
   },
-
-  eDostavkaClicked: function(e) {
-    e.preventDefault();
-
-  }
   getOrderItem: function(itemEl) {
     var id = itemEl.data('item-id');
     return $('.js-order-item').filter(function() {
@@ -164,13 +158,6 @@ var Cafe = {
         is_visible: !!Cafe.canPay,
         text: 'VIEW ORDER',
         color: '#31b545'
-      }).hideProgress();
-    }
-    else {
-      mainButton.setParams({
-        is_visible: !!Cafe.canPay,
-        text: 'Dostavka',
-        color: '#ff0303'
       }).hideProgress();
     }
   },
