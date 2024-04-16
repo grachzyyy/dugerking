@@ -407,19 +407,4 @@ function showDeliveryForm() {
     form.reset();
   });
 }
-
-document.getElementById("deliveryButton").addEventListener("click", toggleDeliveryForm);
-
-function toggleDeliveryForm() {
-  const formContainer = document.getElementById("deliveryFormContainer");
-
-  if (formContainer.style.display === "none" || formContainer.style.display === "") {
-    // Form is currently closed, show it
-    formContainer.style.display = "block";
-  } else {
-    // Form is currently open, hide it
-    formContainer.style.display = "none";
-  }
-}
-
 }
