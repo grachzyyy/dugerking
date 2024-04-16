@@ -363,19 +363,6 @@ body.order-mode .cafe-order-overview {
   margin-top: 14px;
 }
 
-.cafe-text-field-wrap-adres{
-  margin-top: px;
-}
-
-.cafe-text-field-wrap-adres-znack{
-  display: flex;
-}
-
-.cafe-text-field-wrap-adres-znack i{
-  font-size: 48px;
-}
-
-
 .cafe-text-field {
   font-family: var(--default-font);
   font-size: 17px;
