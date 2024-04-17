@@ -519,29 +519,25 @@
     </div>
 
 
-    <div class="block-dostavka">
+    <button id="deliveryButton">Доставка</button>
 
-      <a id="deliveryButton">Доставка</a>
-    
-      <div id="deliveryFormContainer" style="display: none;">
-        <h2>Форма доставки</h2>
-        <form id="deliveryForm">
-          <label for="address">Адрес:</label>
-          <input type="text" id="address" name="address"><br>
-      
-          <label for="house">Дом:</label>
-          <input type="text" id="house" name="house"><br>
-      
-          <label for="floor">Этаж:</label>
-          <input type="text" id="floor" name="floor"><br>
-      
-          <button type="submit">Отправить</button>
-        </form>
-      </div>
-    
-    </div>
+  <div id="deliveryFormContainer" style="display: none;">
+    <h2>Форма доставки</h2>
+    <form id="deliveryForm">
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" name="address"><br>
   
-  <script>  
+      <label for="house">Дом:</label>
+      <input type="text" id="house" name="house"><br>
+  
+      <label for="floor">Этаж:</label>
+      <input type="text" id="floor" name="floor"><br>
+  
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+  
+  <script>
   const deliveryFormContainer = document.getElementById('deliveryFormContainer');
   
   window.addEventListener('DOMContentLoaded', function() {
