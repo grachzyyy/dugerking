@@ -386,7 +386,7 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
-.block-dostavka{
+.block-dostavka a{
   font-family: var(--default-font);
   font-size: 17px;
   line-height: 21px;
@@ -404,8 +404,6 @@ body.order-mode .cafe-order-overview {
   cursor: auto;
   width: 100%;
 }
-
-
 
 .cafe-text-field::-webkit-input-placeholder {
   transition: color var(--animation);
