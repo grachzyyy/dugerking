@@ -405,7 +405,7 @@ a{
   
 }
 
-.deliveryFormContainer textarea{
+.deliveryFormContainer{
   font-family: var(--default-font);
   font-size: 17px;
   line-height: 21px;
