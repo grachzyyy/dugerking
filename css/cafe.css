@@ -405,7 +405,7 @@ a{
   
 }
 
-.deliveryFormContainer{
+.deliveryFormContainer .cafe-text-field-js-order-comment-field cafe-block{
   font-family: var(--default-font);
   font-size: 17px;
   line-height: 21px;
