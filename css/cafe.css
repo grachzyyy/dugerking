@@ -386,7 +386,7 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
-.block-dostavka a{
+a{
   font-family: var(--default-font);
   font-size: 17px;
   line-height: 21px;
