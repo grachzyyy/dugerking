@@ -518,26 +518,27 @@
       </div>
     </div>
 
-<div class="dostavka">
-    
-    <a id="deliveryButton">Доставка</a>
+    <div class="block-dostavka">
 
-  <div id="deliveryFormContainer" style="display: none;">
-    <h2>Форма доставки</h2>
-    <form id="deliveryForm">
-      <label for="address">Адрес:</label>
-      <input type="text" id="address" name="address"><br>
-  
-      <label for="house">Дом:</label>
-      <input type="text" id="house" name="house"><br>
-  
-      <label for="floor">Этаж:</label>
-      <input type="text" id="floor" name="floor"><br>
-  
-      <button type="submit">Отправить</button>
-    </form>
-  </div>
-</div>
+      <a id="deliveryButton">Доставка</a>
+    
+      <div id="deliveryFormContainer" style="display: none;">
+        <form id="deliveryForm">
+          <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
+          placeholder="Adress…"></textarea>
+      
+          <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
+          placeholder="Dom…"></textarea>
+    
+          <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
+          placeholder="Etag…"></textarea>
+      
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+    
+    </div>
+    
   <script>
   const deliveryFormContainer = document.getElementById('deliveryFormContainer');
   
