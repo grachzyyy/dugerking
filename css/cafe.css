@@ -391,7 +391,7 @@ a{
   font-size: 17px;
   line-height: 21px;
   -webkit-font-smoothing: antialiased;
-  padding: 12px 20px 13px;
+  padding: 12px 0px 13px;
   box-sizing: border-box;
   display: block;
   outline: none;
@@ -403,6 +403,10 @@ a{
   user-select: auto;
   cursor: auto;
   width: 100%;
+}
+
+.block-dostavka .deliveryFormContainer {
+  padding: 0px;
 }
 
 .cafe-text-field::-webkit-input-placeholder {
