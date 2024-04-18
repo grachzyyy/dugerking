@@ -518,23 +518,25 @@
       </div>
     </div>
 
-    <div class="cafe-text-field-wrap-adres">
+    <div class="block-dostavka">
+      <div class="oglavleniedostavkA">
       <a id="deliveryButton">Доставка</a>
-  </div>
-  
-    <div id="deliveryFormContainer" style="display: none;">
-      <form id="deliveryForm">
-        <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
-        placeholder="Adress…"></textarea>
+    </div>
+      <div id="deliveryFormContainer" style="display: none;">
+        <form id="deliveryForm">
+          <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
+          placeholder="Adress…"></textarea>
+      
+          <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
+          placeholder="Dom…"></textarea>
     
-        <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
-        placeholder="Dom…"></textarea>
-  
-        <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
-        placeholder="Etagh…"></textarea>
+          <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
+          placeholder="Etag…"></textarea>
+      
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
     
-        <button type="submit">Отправить</button>
-      </form>
     </div>
   <script>
   const deliveryFormContainer = document.getElementById('deliveryFormContainer');
