@@ -386,6 +386,24 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
+.oglavleniedostavka a{
+  font-family: var(--default-font);
+  font-size: 17px;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+  padding: 12px 20px 13px;
+  box-sizing: border-box;
+  display: block;
+  outline: none;
+  border:1px solid #e8eaf6;
+  border-radius: 0;
+  resize: none;
+  color: var(--text-color);
+  -webkit-user-select: auto;
+  user-select: auto;
+  cursor: auto;
+  width: 100%;
+}
 
 .deliveryFormContainer{
   font-family: var(--default-font);
@@ -406,6 +424,9 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
+.block-dostavka .deliveryFormContainer {
+  padding: 0px;
+}
 
 .cafe-text-field::-webkit-input-placeholder {
   transition: color var(--animation);
