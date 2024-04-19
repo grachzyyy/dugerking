@@ -440,8 +440,7 @@ body.order-mode .cafe-order-overview {
   text-overflow: ellipsis;
 }
 .cafe-text-field:-ms-input-placeholder {
-  transition: color var(--animation);
-  color: var(--placeholder-color);
+  
   text-overflow: ellipsis;
 }
 .cafe-text-field::placeholder {
@@ -453,7 +452,7 @@ body.order-mode .cafe-order-overview {
   line-height: 18px;
   -webkit-font-smoothing: antialiased;
   padding: 10px 20px 0px;
-  color: var(--hint-color);
+  
 }
 
 
