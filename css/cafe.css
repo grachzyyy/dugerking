@@ -388,6 +388,7 @@ body.order-mode .cafe-order-overview {
 
 .block-dostavka .oglavleniedostavka{
   width: 80%;
+  align-items:center ;
 }
 
 .oglavleniedostavka a{
