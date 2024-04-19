@@ -379,7 +379,7 @@ body.order-mode .cafe-order-overview {
   border: none;
   border-radius: 0;
   resize: none;
-  
+  color: var(--text-color);
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
@@ -395,7 +395,6 @@ body.order-mode .cafe-order-overview {
   box-sizing: border-box;
   display: block;
   outline: none;
-  border: 1px solid #e8eaf6;
   border-radius: 0;
   resize: none;
   color: var(--text-color);
@@ -404,7 +403,6 @@ body.order-mode .cafe-order-overview {
   cursor: auto;
   width: 100%;
 }
-
 
 
 .deliveryFormContainer{
@@ -424,7 +422,6 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
-  
 }
 
 .block-dostavka .deliveryFormContainer {
@@ -432,15 +429,18 @@ body.order-mode .cafe-order-overview {
 }
 
 .cafe-text-field::-webkit-input-placeholder {
-  
+  transition: color var(--animation);
+  color: var(--placeholder-color);
   text-overflow: ellipsis;
 }
 .cafe-text-field::-moz-placeholder {
-  
+  transition: color var(--animation);
+  color: var(--placeholder-color);
   text-overflow: ellipsis;
 }
 .cafe-text-field:-ms-input-placeholder {
-  
+  transition: color var(--animation);
+  color: var(--placeholder-color);
   text-overflow: ellipsis;
 }
 .cafe-text-field::placeholder {
@@ -452,7 +452,7 @@ body.order-mode .cafe-order-overview {
   line-height: 18px;
   -webkit-font-smoothing: antialiased;
   padding: 10px 20px 0px;
-  
+  color: var(--hint-color);
 }
 
 
