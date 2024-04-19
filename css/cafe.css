@@ -404,6 +404,9 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
+.block-dostavka .oglavleniedostavka a #deliveryButton {
+  color: #222;
+}
 
 .deliveryFormContainer{
   font-family: var(--default-font);
