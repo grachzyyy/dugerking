@@ -533,7 +533,7 @@ body.loading .loading-icon {
   --radius: 9px;
 }
 
-.block-dostavka .oglavleniedostavka a #deliveryButton {
+.block-dostavka .oglavleniedostavka a .cafe-text-field {
   color: #222;
 }
 
