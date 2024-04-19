@@ -400,8 +400,9 @@ body.order-mode .cafe-order-overview {
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
-  width: 100%;
+  width: 80%;
   border-radius: 8px;
+
 }
 
 
