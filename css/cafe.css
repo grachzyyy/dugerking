@@ -534,7 +534,7 @@ body.loading .loading-icon {
 }
 
 .block-dostavka .oglavleniedostavka a .cafe-text-field {
-  color: var(--text-color);
+  color: var(--placeholder-color);
 }
 
 @-webkit-keyframes rotate-circle {
