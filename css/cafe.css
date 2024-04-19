@@ -395,13 +395,13 @@ body.order-mode .cafe-order-overview {
   box-sizing: border-box;
   display: block;
   outline: none;
+  border-radius: 0;
   resize: none;
   color: var(--placeholder-color);
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
   width: 100%;
-  
 }
 
 
@@ -535,10 +535,6 @@ body.loading .loading-icon {
 
 .block-dostavka .oglavleniedostavka a .cafe-text-field {
   color: var(--placeholder-color);
-}
-
-.block-dostavka{
-  border-radius: 8px;
 }
 
 @-webkit-keyframes rotate-circle {
