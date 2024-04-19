@@ -397,7 +397,7 @@ body.order-mode .cafe-order-overview {
   outline: none;
   border-radius: 0;
   resize: none;
-  color: #222;
+  color: var(--text-color);
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
