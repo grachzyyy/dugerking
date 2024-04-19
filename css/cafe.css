@@ -537,6 +537,10 @@ body.loading .loading-icon {
   color: var(--placeholder-color);
 }
 
+.block-dostavka{
+  border-radius: 8px;
+}
+
 @-webkit-keyframes rotate-circle {
   from { transform: rotateZ(-90deg); }
   to   { transform: rotateZ(630deg); }
