@@ -379,7 +379,7 @@ body.order-mode .cafe-order-overview {
   border: none;
   border-radius: 0;
   resize: none;
-  color: var(--text-color);
+  
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
@@ -403,7 +403,6 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
-  color: var(--placeholder-color);
 }
 
 
@@ -425,7 +424,7 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
-
+  
 }
 
 .block-dostavka .deliveryFormContainer {
@@ -437,8 +436,7 @@ body.order-mode .cafe-order-overview {
   text-overflow: ellipsis;
 }
 .cafe-text-field::-moz-placeholder {
-  transition: color var(--animation);
-  color: var(--placeholder-color);
+  
   text-overflow: ellipsis;
 }
 .cafe-text-field:-ms-input-placeholder {
