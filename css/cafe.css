@@ -395,13 +395,13 @@ body.order-mode .cafe-order-overview {
   box-sizing: border-box;
   display: block;
   outline: none;
-  border-radius: 0;
   resize: none;
   color: var(--placeholder-color);
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
   width: 100%;
+  border-radius: 8px;
 }
 
 
