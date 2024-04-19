@@ -404,9 +404,6 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
-.block-dostavka .oglavleniedostavka a #deliveryButton {
-  color: #222;
-}
 
 .deliveryFormContainer{
   font-family: var(--default-font);
@@ -534,6 +531,10 @@ body.loading .loading-icon {
   stroke-dasharray: calc(var(--radius) * 6.28);
   r: var(--radius);
   --radius: 9px;
+}
+
+.block-dostavka .oglavleniedostavka a #deliveryButton {
+  color: #222;
 }
 
 @-webkit-keyframes rotate-circle {
