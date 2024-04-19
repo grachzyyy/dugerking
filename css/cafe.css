@@ -386,11 +386,6 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
-.block-dostavka .oglavleniedostavka{
-  width: 80%;
-  align-items:center ;
-}
-
 .oglavleniedostavka a{
   font-family: var(--default-font);
   font-size: 17px;
@@ -406,7 +401,6 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
-  border-radius: 8px;
   
 }
 
