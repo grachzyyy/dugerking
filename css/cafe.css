@@ -405,6 +405,27 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
+.oglavleniedostavka::-webkit-input-placeholder {
+  transition: color var(--animation);
+  color: var(--placeholder-color);
+  text-overflow: ellipsis; 
+}
+
+.oglavleniedostavka::-moz-placeholder {
+  transition: color var(--animation);
+  color: var(--placeholder-color);
+  text-overflow: ellipsis;
+}
+.oglavleniedostavka:-ms-input-placeholder {
+  transition: color var(--animation);
+  color: var(--placeholder-color);
+  text-overflow: ellipsis;
+}
+.oglavleniedostavka::placeholder {
+  text-overflow: ellipsis;
+}
+
+
 .deliveryFormContainer{
   font-family: var(--default-font);
   font-size: 17px;
