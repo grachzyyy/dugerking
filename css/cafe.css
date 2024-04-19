@@ -403,27 +403,9 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
+  color: var(--placeholder-color);
 }
 
-.oglavleniedostavka::-webkit-input-placeholder {
-  transition: color var(--animation);
-  color: var(--placeholder-color);
-  text-overflow: ellipsis; 
-}
-
-.oglavleniedostavka::-moz-placeholder {
-  transition: color var(--animation);
-  color: var(--placeholder-color);
-  text-overflow: ellipsis;
-}
-.oglavleniedostavka:-ms-input-placeholder {
-  transition: color var(--animation);
-  color: var(--placeholder-color);
-  text-overflow: ellipsis;
-}
-.oglavleniedostavka::placeholder {
-  text-overflow: ellipsis;
-}
 
 
 .deliveryFormContainer{
@@ -443,6 +425,7 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
+
 }
 
 .block-dostavka .deliveryFormContainer {
@@ -450,8 +433,7 @@ body.order-mode .cafe-order-overview {
 }
 
 .cafe-text-field::-webkit-input-placeholder {
-  transition: color var(--animation);
-  color: var(--placeholder-color);
+  
   text-overflow: ellipsis;
 }
 .cafe-text-field::-moz-placeholder {
