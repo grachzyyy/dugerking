@@ -520,7 +520,7 @@
 
     <div class="block-dostavka">
       <div class="oglavleniedostavka">
-        <i id="deliveryButton" class="bx bx-map" class="cafe-text-field js-order-comment-field cafe-block">Доставка</i>
+        <i id="deliveryButton" class="bx bx-map">Доставка</i>
     </div>
       <div id="deliveryFormContainer" style="display: none;" class="deliveryFormContainer">
         <form id="deliveryForm">
@@ -534,8 +534,11 @@
           placeholder="Etag…"></textarea>
         </form>
       </div>
-    
     </div>
+    <script>
+    document.getElementById("deliveryButton").classList.add("cafe-text-field", "js-order-comment-field", "cafe-block");
+  </script>
+
   <script>
   const deliveryFormContainer = document.getElementById('deliveryFormContainer');
   
