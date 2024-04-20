@@ -543,6 +543,11 @@ body.loading .loading-icon {
   display: flex;
 }
 
+.oglavleniedostavka i .bx .bx-map{
+  height: 36px;
+  width: 36px;
+}
+
 @-webkit-keyframes rotate-circle {
   from { transform: rotateZ(-90deg); }
   to   { transform: rotateZ(630deg); }
