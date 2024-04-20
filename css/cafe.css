@@ -442,11 +442,6 @@ body.order-mode .cafe-order-overview {
   user-select: auto;
   cursor: auto;
   width: 100%;
-  margin-top: 7px;
-}
-
-.deliveryFormContainer form textarea{
-  margin-top: 3.5px;
 }
 
 .block-dostavka .deliveryFormContainer {
