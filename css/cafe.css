@@ -401,8 +401,7 @@ body.order-mode .cafe-order-overview {
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
-  height: 36px;
-  width: 36px;
+  width: 100%;
   margin-top: 14px;
 }
 
@@ -538,12 +537,13 @@ body.loading .loading-icon {
 
 .block-dostavka .oglavleniedostavka i .cafe-text-field {
   color: var(--placeholder-color);
+  width: 36px;
+  height: 36px;
 }
 
 .oglavleniedostavka{
   display: flex;
 }
-
 
 @-webkit-keyframes rotate-circle {
   from { transform: rotateZ(-90deg); }
