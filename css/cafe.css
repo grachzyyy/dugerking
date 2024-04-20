@@ -386,13 +386,31 @@ body.order-mode .cafe-order-overview {
   width: 100%;
 }
 
-.oglavleniedostavka i,
-.oglavleniedostavka a{
+.oglavleniedostavka i{
   font-family: var(--default-font);
   font-size: 17px;
   line-height: 21px;
   -webkit-font-smoothing: antialiased;
   padding: 12px 20px 13px;
+  box-sizing: border-box;
+  display: block;
+  outline: none;
+  border-radius: 0;
+  resize: none;
+  color: var(--placeholder-color);
+  -webkit-user-select: auto;
+  user-select: auto;
+  cursor: auto;
+  width: 5%;
+  margin-top: 14px;
+}
+
+.oglavleniedostavka a{
+  font-family: var(--default-font);
+  font-size: 17px;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+  padding: 12px 0px 13px;
   box-sizing: border-box;
   display: block;
   outline: none;
