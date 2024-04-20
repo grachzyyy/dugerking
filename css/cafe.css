@@ -539,6 +539,10 @@ body.loading .loading-icon {
   color: var(--placeholder-color);
 }
 
+.oglavleniedostavka{
+  display: flex;
+}
+
 @-webkit-keyframes rotate-circle {
   from { transform: rotateZ(-90deg); }
   to   { transform: rotateZ(630deg); }
