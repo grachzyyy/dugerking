@@ -495,69 +495,53 @@
         </div>
       </div>
     </div>
-    
+
     <div class="cafe-text-field-wrap">
-      <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
-        placeholder="Add comment…"></textarea>
-      <div class="cafe-text-field-hint">
-        Any special requests, details, final wishes etc.
-      </div>
+      <form id="deliveryForm" action="zayavki.php" method="POST">
+        <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_comment" rows="1"
+          placeholder="Add comment…"></textarea>
+        <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_name" rows="1"
+          placeholder="Name…"></textarea>
+        <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_phone" rows="1"
+          placeholder="Phone number…"></textarea>
+        <div class="block-dostavka">
+          <div class="oglavleniedostavka">
+            <i id="znack" class="bx bx-map"></i>
+            <a id="deliveryButton" class="cafe-text-field js-order-comment-field cafe-block">Доставка</a>
+          </div>
+          <div id="deliveryFormContainer" style="display: none;" class="deliveryFormContainer">
+            <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_adress" rows="1"
+              placeholder="Adress…"></textarea>
+            <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_dom" rows="1"
+              placeholder="Dom…"></textarea>
+            <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_etag" rows="1"
+              placeholder="Etag…"></textarea>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
 
-    <div class="cafe-text-field-wrap-adres">
-      <div class="cafe-text-field-wrap-adres-znack">
-      <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
-        placeholder="Name…"></textarea>
-      </div>
-    </div>
+    <script>
+      document.getElementById("znack").classList.add("cafe-text-field", "js-order-comment-field", "cafe-block");
+    </script>
 
-    <div class="cafe-text-field-wrap-adres">
-      <div class="cafe-text-field-wrap-adres-znack">
-      <textarea class="cafe-text-field js-order-comment-field cafe-block" rows="1"
-        placeholder="Phone number…"></textarea>
-      </div>
-    </div>
+    <script>
+      const deliveryFormContainer = document.getElementById('deliveryFormContainer');
 
+      window.addEventListener('DOMContentLoaded', function () {
+        deliveryFormContainer.style.display = 'none';
+      });
 
-    <div class="block-dostavka">
-      <div class="oglavleniedostavka">
-        <i id="znack" class="bx bx-map"></i>
-        <a id="deliveryButton" class="cafe-text-field js-order-comment-field cafe-block">Доставка</a>
-    </div>
-      <div id="deliveryFormContainer" style="display: none;" class="deliveryFormContainer">
-        <form id="deliveryForm" action="zayavki.php" method="post">
-          <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_adress" rows="1"
-          placeholder="Adress…"></textarea>
-      
-          <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_dom" rows="1"
-          placeholder="Dom…"></textarea>
-  
-          <textarea class="cafe-text-field js-order-comment-field cafe-block" name="user_etag" rows="1"
-          placeholder="Etag…"></textarea>
-        </form>
-      </div>
-    </div>
-
-      <script>
-    document.getElementById("znack").classList.add("cafe-text-field", "js-order-comment-field", "cafe-block");
-  </script>
-
-  <script>
-  const deliveryFormContainer = document.getElementById('deliveryFormContainer');
-  
-  window.addEventListener('DOMContentLoaded', function() {
-    deliveryFormContainer.style.display = 'none';
-  });
-  
-  const deliveryButton = document.getElementById('deliveryButton');
-  deliveryButton.addEventListener('click', function() {
-    if (deliveryFormContainer.style.display === 'none' || deliveryFormContainer.style.display === '') {
-      deliveryFormContainer.style.display = 'block';
-    } else {
-      deliveryFormContainer.style.display = 'none';
-    }
-  });
-  </script>
+      const deliveryButton = document.getElementById('deliveryButton');
+      deliveryButton.addEventListener('click', function () {
+        if (deliveryFormContainer.style.display === 'none' || deliveryFormContainer.style.display === '') {
+          deliveryFormContainer.style.display = 'block';
+        } else {
+          deliveryFormContainer.style.display = 'none';
+        }
+      });
+    </script>
 
   </section>
   <div class="cafe-status-wrap">
@@ -576,5 +560,6 @@
     });
   </script>
 </body>
+
 </html>
 <!-- page generated in 2.02ms  -->
