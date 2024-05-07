@@ -18,7 +18,7 @@ body {
   --page-animation-duration: .3s;
   --page-animation: var(--page-animation-duration) ease;
   --status-height: 48px;
-  --accent-color: #7824cc;
+  --accent-color: #31b545;
   --main-color: #f8a917;
   --text-color: #222;
   --page-hint-color: #83878a;
