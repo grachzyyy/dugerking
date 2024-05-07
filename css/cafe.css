@@ -18,7 +18,7 @@ body {
   --page-animation-duration: .3s;
   --page-animation: var(--page-animation-duration) ease;
   --status-height: 48px;
-  --accent-color: #31b545;
+  --accent-color: #7824cc;
   --main-color: #f8a917;
   --text-color: #222;
   --page-hint-color: #83878a;
@@ -561,6 +561,8 @@ body.loading .loading-icon {
 .oglavleniedostavka{
   display: flex;
 }
+
+
 
 @-webkit-keyframes rotate-circle {
   from { transform: rotateZ(-90deg); }
