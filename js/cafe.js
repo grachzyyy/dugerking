@@ -26,7 +26,7 @@ var Cafe = {
       autosize(this);
     });
     Telegram.WebApp.MainButton.setParams({
-      text_color: '#03fcb6'
+      text_color: '#fff'
     }).onClick(Cafe.mainBtnClicked);
     initRipple();
   },
