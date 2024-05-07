@@ -366,7 +366,11 @@
         });
       }
   
-     
+      function onMainButtonPressed() {
+        if (isActive && onClickCallback) {
+          onClickCallback();
+        }
+      }
   
       function updateButton() {
         var color = mainButton.color;
