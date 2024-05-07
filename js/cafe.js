@@ -517,4 +517,3 @@ function initRipple() {
     })(rippleHandlers[i]);
   }
 }
-
