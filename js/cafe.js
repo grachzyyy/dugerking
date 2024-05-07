@@ -39,12 +39,6 @@ var Cafe = {
       });
     });
   },
-  eLottieClicked: function(e) {
-    if (Cafe.isClosed) {
-      return false;
-    }
-    RLottie.playOnce(this);
-  },
   eIncrClicked: function(e) {
     e.preventDefault();
     var itemEl = $(this).parents('.js-item');
@@ -95,7 +89,7 @@ var Cafe = {
     Cafe.updateTotalPrice();
   },
   incrClicked: function(itemEl, delta) {
-    if (Cafe.isLoading || Cafe.isClosed) {
+    if (Cafe.isLoading) {
       return false;
     }
     var count = +itemEl.data('item-count') || 0;
@@ -240,7 +234,7 @@ var Cafe = {
     Cafe.updateTotalPrice();
   },
   mainBtnClicked: function() {
-    if (!Cafe.canPay || Cafe.isLoading || Cafe.isClosed) {
+    if (!Cafe.canPay || Cafe.isLoading) {
       return false;
     }
     if (Cafe.modeOrder) {
@@ -273,9 +267,6 @@ var Cafe = {
   showStatus: function(text) {
     clearTimeout(Cafe.statusTo);
     $('.js-status').text(text).addClass('shown');
-    if (!Cafe.isClosed) {
-      Cafe.statusTo = setTimeout(function(){ Cafe.hideStatus(); }, 2500);
-    }
   },
   hideStatus: function() {
     clearTimeout(Cafe.statusTo);
