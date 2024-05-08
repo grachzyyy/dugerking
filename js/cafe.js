@@ -33,7 +33,8 @@ var Cafe = {
     });
     Telegram.WebApp.MainButton.setParams({
       text_color: '#fff'
-    })
+    }).onClick(Cafe.mainBtnClicked);
+    initRipple();
   },
   initLotties: function() {
     $('.js-item-lottie').each(function() {
