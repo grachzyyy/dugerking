@@ -271,8 +271,6 @@ var Cafe = {
       });
     } else {
       Cafe.toggleMode(true);
-      // Отображаем форму доставки при переключении в режим заказа
-      
     }
   },
   eStatusClicked: function() {
