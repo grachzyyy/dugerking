@@ -270,7 +270,7 @@ var Cafe = {
         }
       });
     } else {
-      Cafe.toggleMode(true);
+      
     }
   },
   eStatusClicked: function() {
