@@ -272,7 +272,7 @@ var Cafe = {
     } else {
       Cafe.toggleMode(true);
       // Отображаем форму доставки при переключении в режим заказа
-      $('.delivery-form2').show();
+      
     }
   },
   eStatusClicked: function() {
